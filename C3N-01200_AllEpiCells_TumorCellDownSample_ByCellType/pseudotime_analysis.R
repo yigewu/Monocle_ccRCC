@@ -157,6 +157,8 @@ if (file.exists(obj_output_path) & opt$force.reprocess==FALSE){
   ### subset the data to extract proximal tubules only
   cat ("Subset cells of interest....\n")
   combined_subset <- subset(combined,cells=combined@meta.data %>% rownames_to_column %>% filter(Keep == T) %>% .$rowname) 
+  cat ("Dimension of the subsetted object \n")
+  cat(dim(combined_subset))
   ### get gene count matrix
   exprs_matrix <- GetAssayData(combined_subset,slot="counts")
   ### get feature names
