@@ -9,7 +9,7 @@ dir_base = "/diskmnt/Projects/ccRCC_scratch/ccRCC_snRNA/"
 # dir_base = "~/Box/Ding_Lab/Projects_Current/RCC/ccRCC_snRNA/"
 setwd(dir_base)
 ## set input paths
-path_rds <- "./Resources/Analysis_Results/integration/30_aliquot_integration/docker_run_integration/20200212.v3/30_aliquot_integration.20200212.v3.RDS"
+path_srat <- "./Resources/Analysis_Results/integration/30_aliquot_integration/docker_run_integration/20200212.v3/30_aliquot_integration.20200212.v3.RDS"
 path_idmetadata <- "./Resources/Analysis_Results/sample_info/make_meta_data/20200505.v1/meta_data.20200505.v1.tsv"
 # path_bc2celltype <- "./Resources/Analysis_Results/annotate_barcode/map_celltype_to_all_cells_with_patch/20200720.v1/31AliquotIntegration.Barcode2CellType.TumorManualCluster.20200720.v1.tsv"
 path_bc2celltype <- "./Resources/Analysis_Results/annotate_barcode/map_celltype_corrected_by_individual_sample_inspection/20200811.v1/31Aliquot.Barcode2CellType.20200811.v1.tsv"
