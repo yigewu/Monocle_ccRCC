@@ -2,14 +2,14 @@
 
 
 # Set Run-Specific Parameters ---------------------------------------------
-## case processing
-id_case <- "C3N-01200"
 ## set working directory
 dir_base = "/diskmnt/Projects/ccRCC_scratch/ccRCC_snRNA/"
+# dir_base = "~/Box/Ding_Lab/Projects_Current/RCC/ccRCC_snRNA/"
 setwd(dir_base)
 path_srat <- "./Resources/snRNA_Processed_Data/Merged_Seurat_Objects/C3N-01200.Tumor_Segments.Merged.20200319.v1.RDS"
 path_idmetadata <- "./Resources/Analysis_Results/sample_info/make_meta_data/20200505.v1/meta_data.20200505.v1.tsv"
-path_bc2celltype <- "./Resources/Analysis_Results/annotate_barcode/map_celltype_to_all_cells_with_patch/20200720.v1/31AliquotIntegration.Barcode2CellType.TumorManualCluster.20200720.v1.tsv"
+# path_bc2celltype <- "./Resources/Analysis_Results/annotate_barcode/map_celltype_to_all_cells_with_patch/20200720.v1/31AliquotIntegration.Barcode2CellType.TumorManualCluster.20200720.v1.tsv"
+path_bc2celltype <- "./Resources/Analysis_Results/annotate_barcode/map_celltype_corrected_by_individual_sample_inspection/20200811.v1/31Aliquot.Barcode2CellType.20200811.v1.tsv"
 
 # Set Fixed Parameters -------------------------------------------------------------------
 # load required libraries
@@ -148,7 +148,7 @@ if (file.exists(obj_output_path) & opt$force.reprocess==FALSE){
   combined@meta.data <- column_to_rownames(combined@meta.data,"rowname")[BC,]
   ### subset the data to extract proximal tubules only
   cat ("Subset cells of interest....\n")
-  combined_subset <- subset(combined,cells=combined@meta.data %>% rownames_to_column %>% filter(Most_Enriched_Cell_Group=="Nephron_Epithelium") %>% .$rowname) 
+  combined_subset <- subset(combined,cells=combined@meta.data %>% rownames_to_column %>% filter(Cell_group.shorter=="Nephron_Epithelium") %>% .$rowname) 
   ### get gene count matrix
   exprs_matrix <- GetAssayData(combined_subset,slot="counts")
   ### get feature names
