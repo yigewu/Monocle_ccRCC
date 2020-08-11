@@ -2,8 +2,6 @@
 
 
 # Set Run-Specific Parameters ---------------------------------------------
-## set case id
-id_case <- "C3N-01200"
 ## set working directory
 dir_base = "/diskmnt/Projects/ccRCC_scratch/ccRCC_snRNA/"
 # dir_base = "~/Box/Ding_Lab/Projects_Current/RCC/ccRCC_snRNA/"
@@ -43,6 +41,11 @@ order_cells <- function(monocle_obj,ordering_genes,visualization_output,reverse=
 
 # create user options
 option_list = list(
+  make_option(c("--Case"),
+              type="character",
+              default=NA,
+              help="specify which case will be processed",
+              metavar="character"),
   make_option(c("--FormulaStr"),
               type="character",
               default=NA,
@@ -90,7 +93,7 @@ if (str_sub(out_path,"-1")!="/"){
 formula_str <- opt$FormulaStr
 
 q_val_cutoff <- opt$q_val %>% as.numeric
-
+id_case <- opt$Case
 
 ## write log file
 dir.create(out_path,recursive=TRUE,showWarnings = TRUE)
