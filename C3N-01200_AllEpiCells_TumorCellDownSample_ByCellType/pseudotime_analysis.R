@@ -222,6 +222,7 @@ if (file.exists(obj_output_path) & opt$force.reprocess==FALSE){
   ## process according to ordering gene threshold (qval) as 0.01
   cat ("Ordering Cells...\n")
   combined_subset_pseudotime <- order_cells(monocle_obj=combined_subset_pseudotime,ordering_genes=ordering_genes,visualization_output=paste0(out_path,"ordering_genes_visualization2_qval",q_val_cutoff,".pdf"),reverse=FALSE)
+  cat ("Finished ordering cells\n")
   
   pdf(paste0(out_path,"plot_cell_Pseudotime_along_trajectory_qval_",q_val_cutoff,".pdf"),width=8,height=8)
   p <- plot_cell_trajectory(combined_subset_pseudotime, color_by = "Pseudotime",cell_size=0.3,cell_link_size=0.3,state_number_size=1)+theme(aspect.ratio=1)
