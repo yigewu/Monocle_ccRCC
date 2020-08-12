@@ -1,6 +1,5 @@
 ##-re-run step 0 with root state
-id_run="C3N-01200_PooledNormalEpiCells_ByCellType"
-path_out="/diskmnt/Projects/ccRCC_scratch/ccRCC_snRNA/Resources/snRNA_Processed_Data/Monocle/outputs/"${id_run}"/"
+source project_config.sh
 Rscript ./pseudotime_analysis.R \
 --FormulaStr=Cell_type.detailed \
 --q_val=1e-10 \
